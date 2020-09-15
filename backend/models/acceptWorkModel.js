@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+const  mongoose=  require('mongoose');
 
 
 const accceptSchema = new mongoose.Schema({
@@ -17,4 +17,4 @@ const accceptSchema = new mongoose.Schema({
 
   const acceptWorkModel = mongoose.model('AcceptWork', accceptSchema);
 
-  export default acceptWorkModel;
+module.exports = acceptWorkModel;

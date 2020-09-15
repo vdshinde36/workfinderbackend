@@ -1,24 +1,27 @@
-import express from 'express';
-import data from'./data';
-import config from './config';
-import dotenv from 'dotenv';
-import mongoose from 'mongoose';
-import userRoute from './routers/userRouter';
-import bodyParser from 'body-parser'
-import categoryRoute from './routers/categoryRoute'
-import uploadRoute from "./routers/uploadRoute"
-import acceptWorkRoute from "./routers/acceptWorkRoute"
-import cors from "cors"
-dotenv.config();
 
 
-const mongodbUrl = config.MONGODB_URL
+
+
+
+
+const express = require('express');
+const mongoose =require('mongoose');
+const userRoute =require ('./routers/userRouter');
+const bodyParser =require('body-parser')
+const categoryRoute=require('./routers/categoryRoute')
+//const uploadRoute=require("./routers/uploadRoute")
+const acceptWorkRoute=require("./routers/acceptWorkRoute")
+const cors = require("cors");
+
+
+const mongodbUrl = 'mongodb+srv://prasanthtalapadra:Prasanth@970@cluster0.6afkd.mongodb.net/workfinder?retryWrites=true&w=majority'
 mongoose.connect(mongodbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology:true,
     useCreateIndex:true
 
-}).catch(error => console.log(error.reason));
+}).then(()=>{console.log('Db connected')})
+.catch(error => console.log(error));
 
 
 
@@ -31,7 +34,7 @@ app.use(cors())
 app.use(bodyParser.json());
 app.use('/api/users',userRoute);
 app.use('/api/category',categoryRoute);
-app.use('/api/uploads',uploadRoute)
+//app.use('/api/uploads',uploadRoute)
 app.use('/api/acceptwork',acceptWorkRoute)
 //  app.use('/api/ongoingworks',acceptWorkRoute)
 
@@ -65,4 +68,4 @@ app.use('/api/acceptwork',acceptWorkRoute)
 //  })
 
 
-app.listen(5000,() => { console.log("Server started at http://localhost:5000")})
+app.listen(7000,() => { console.log("Server started at http://localhost:7000")})

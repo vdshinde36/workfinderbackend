@@ -1,6 +1,6 @@
-import express from 'express';
-import Category from '../models/categoryModel';
-import { isAuth, isAdmin } from '../util';
+const express =require( 'express');
+const Category =require( '../models/categoryModel');
+const { isAuth, isAdmin } =require( '../util');
 
 const router = express.Router();
 
@@ -90,4 +90,4 @@ router.put("/:id", isAuth, isAdmin, async (req, res) => {
     })
  
   
-export default router;
+module.exports = router ;

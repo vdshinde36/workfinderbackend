@@ -1,5 +1,5 @@
-import express from 'express';
-import multer from 'multer';
+//import express from 'express';
+//import multer from 'multer';
 // import multerS3 from 'multer-s3';
 // import aws from 'aws-sdk';
 // import config from '../config';
@@ -50,4 +50,4 @@ router.post('/', upload.single('image'), (req, res) => {
 // router.post('/s3', uploadS3.single('image'), (req, res) => {
 //   res.send(req.file.location);
 // });
-export default router;
+module.exports = router;

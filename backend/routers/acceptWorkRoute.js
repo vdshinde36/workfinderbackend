@@ -1,6 +1,6 @@
-import express from 'express';
-import AcceptWork from '../models/acceptWorkModel';
-import { isAuth, isAdmin } from '../util';
+const express= require('express');
+const AcceptWork= require('../models/acceptWorkModel');
+const { isAuth, isAdmin }= require('../util');
 
 const router = express.Router();
 
@@ -72,4 +72,4 @@ router.post("/",isAuth,isAdmin,async (req, res) => {
   });
   
 
- export default router;
+ module.exports = router;
