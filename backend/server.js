@@ -35,7 +35,7 @@ app.use(bodyParser.json());
 app.use('/api/users',userRoute);
 app.use('/api/category',categoryRoute);
 //app.use('/api/uploads',uploadRoute)
-app.use('/api/acceptwork',acceptWorkRoute)
+app.use('/api/acceptwork',acceptWorkRoute);
 //  app.use('/api/ongoingworks',acceptWorkRoute)
 
 

@@ -59,4 +59,10 @@ router.get('/createadmin', async (req, res) => {
     }
 });
 
+
+
+router.get('/healt', (req,res)=>{
+  res.json({ststus:'OK'});
+});
+
 module.exports = router;
