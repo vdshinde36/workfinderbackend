@@ -10,7 +10,8 @@ router.get("/",async(req,res)=> {
 })
 
 router.get('/:id', async (req, res) => {
-    console.log("siddhu",req.params.id)
+  console.log('[accpetWork][GET:id]');
+    console.log(req.params.id)
     const acceptwork = await AcceptWork.find({ accepteduserid: req.params.id });
     if (acceptwork) {
       res.send(acceptwork);

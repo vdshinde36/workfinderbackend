@@ -16,7 +16,9 @@ router.get("/",async(req,res)=> {
 // })
 
 router.get('/:id', async (req, res) => {
-    const category = await Category.findOne({ id: req.params.id });
+  console.log('Category GET:id');
+  console.log(typeof req.params.id)
+    const category = await Category.findOne({ _id: req.params.id });
     if (category) {
       res.send(category);
     } else {
@@ -50,8 +52,11 @@ router.post("/",isAuth,isAdmin, async (req, res) => {
 });
 
 
-
+/**
+ * edit job
+ */
 router.put("/:id", isAuth, isAdmin, async (req, res) => {
+  console.log('[Edit Job]');
     console.log(req.body)
     const categoryId=req.params.id;
     const category = await Category.findById({_id:categoryId});
@@ -59,7 +64,7 @@ router.put("/:id", isAuth, isAdmin, async (req, res) => {
         category.name=req.body.name;
         category.phNumber=req.body.phNumber;
         category.wage=req.body.wage;
-        category.image=req.body.image;
+        //category.image=req.body.image;
         category.category=req.body.category;
         category.subCategory=req.body.subCategory;
         category.workersRequired=req.body.workersRequired;
