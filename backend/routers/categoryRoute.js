@@ -98,6 +98,3 @@ router.put("/:id", isAuth, isAdmin, async (req, res) => {
 module.exports = router ;
 
 
-
-
-const data = axios.post();
