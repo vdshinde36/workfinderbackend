@@ -36,6 +36,13 @@ app.use('/api/users',userRoute);
 app.use('/api/category',categoryRoute);
 //app.use('/api/uploads',uploadRoute)
 app.use('/api/acceptwork',acceptWorkRoute);
+
+
+app.use((req,res)=>{
+    res.json({error:'route_not_found'});
+})
+
+
 //  app.use('/api/ongoingworks',acceptWorkRoute)
 
 
