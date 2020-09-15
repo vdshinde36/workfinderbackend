@@ -2,8 +2,8 @@ const path = require("path");
 
 module.exports = {
   apps : [{
-    name: 'workfinder_backend',
-    script: './server.js',
+    name: 'workfinder_backend_gcp',
+    script: './backend/server.js',
     instances: 1,
     watch: false,
     env:{
@@ -14,6 +14,6 @@ module.exports = {
   },
     log_file:path.resolve(__dirname,'pm2log/log.log'),
     error_file:path.resolve(__dirname,'pm2log/error.log'),
-    out_file:path.resolve(__dirname,'pm2log/out.log');
+    out_file:path.resolve(__dirname,'pm2log/out.log')
   }]
 };
