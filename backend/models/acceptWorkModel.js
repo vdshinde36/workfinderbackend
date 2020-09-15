@@ -10,7 +10,7 @@ const accceptSchema = new mongoose.Schema({
     subCategory: { type: String, required: true },
     wage: { type: Number, default: 0, required: true },
     description: { type: String, required: true },
-    id:{type:String,required:true},
+    id:{type:String},
     name:{type:String,required:true},
   });
 

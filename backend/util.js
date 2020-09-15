@@ -7,19 +7,22 @@ const getToken=(user)=>{
         name:user.name,
         email:user.email,
         isAdmin:user.isAdmin,
-    }, config.JWT_SECRET,{
-        expiresIn:'48h'
-    })
+    }, config.JWT_SECRET);
 }
 const isAuth = (req, res, next) => {
     const token = req.headers.authorization;
-    console.log(token)
+    console.log(token);
+    console.log(config.JWT_SECRET);
+    console.log('starting jwt');
     if (token) {
       const onlyToken = token.slice(7, token.length);
+      console.log(onlyToken);
       jwt.verify(onlyToken, config.JWT_SECRET, (err, decode) => {
         if (err) {
+          console.log(err);
           return res.status(401).send({ message: 'Invalid Token' });
         }
+        console.log(decode);
         req.user = decode;
         next();
         return;
@@ -27,6 +30,7 @@ const isAuth = (req, res, next) => {
     } else {
       return res.status(401).send({ message: 'Token is not supplied.' });
     }
+    console.log('ending jwt');
   };
   
   const isAdmin = (req, res, next) => {
